@@ -27,9 +27,8 @@ local plugins = {
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
       dependencies = { 'nvim-lua/plenary.nvim' }
-  }
+  },
 }
-
 
 
 -- Options for the local plugins
@@ -54,7 +53,7 @@ require("lazy").setup({{
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html", "go" },
+          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
           sync_install = false,
           highlight = { enable = true },
           indent = { enable = true },  
