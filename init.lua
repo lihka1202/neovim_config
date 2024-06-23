@@ -44,8 +44,11 @@ require("lazy").setup(plugins, opts)
 local telescope = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', telescope.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
+-- Set up theme
 require("tokyonight").setup()
 vim.cmd.colorscheme "tokyonight-night"
+
+-- setup treesitter
 require("lazy").setup({{
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
