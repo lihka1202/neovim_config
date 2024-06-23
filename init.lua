@@ -16,6 +16,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Local plugins
 local plugins = {
   {
     "folke/tokyonight.nvim",
@@ -28,11 +29,35 @@ local plugins = {
       dependencies = { 'nvim-lua/plenary.nvim' }
   }
 }
+
+
+
+-- Options for the local plugins
 local opts = {}
 
+-- setup system for the plugins
+
+
+-- main set up to require lazy
 require("lazy").setup(plugins, opts)
+
+-- Set up for telescope for live grepping and fzf
 local telescope = require("telescope.builtin")
 vim.keymap.set('n', '<C-p>', telescope.find_files, {})
 vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
 require("tokyonight").setup()
 vim.cmd.colorscheme "tokyonight-night"
+require("lazy").setup({{
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function () 
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup({
+          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html", "go" },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },  
+        })
+    end
+ }})
