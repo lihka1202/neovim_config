@@ -27,13 +27,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- Set up for telescope for live grepping and fzf
-local telescope = require("telescope.builtin")
-vim.keymap.set('n', '<C-p>', telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
 vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>')
--- Set up theme
---require("tokyonight").setup()
---vim.cmd.colorscheme "tokyonight-night"
 
 -- setup treesitter
 require("lazy").setup({{
