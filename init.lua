@@ -25,10 +25,12 @@ vim.opt.rtp:prepend(lazypath)
 -- To some some stuff
 -- main set up to require lazy
 require("lazy").setup("plugins")
-
--- Set up for telescope for live grepping and fzf
+-- Setup keyboard shortcuts
 vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>')
-
+vim.keymap.set('n', '<leader>gl', '<C-w>l')
+vim.keymap.set('n', '<leader>gh', '<C-w>h')
+vim.keymap.set('n', '<leader>gj', '<C-w>j')
+vim.keymap.set('n', '<leader>gk', '<C-w>k')
 -- setup treesitter
 require("lazy").setup({{
     "nvim-treesitter/nvim-treesitter",
