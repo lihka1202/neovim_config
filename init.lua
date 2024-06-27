@@ -1,8 +1,3 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.g.mapleader = " "
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -15,18 +10,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
--- Local plugins
-
-
-
--- setup system for the plugins
-
--- To some some stuff
--- main set up to require lazy
+-- Basic requirements and treesitter config
+require("vim-options")
 require("lazy").setup("plugins")
--- Setup keyboard shortcuts
--- setup treesitter
 require("lazy").setup({{
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
